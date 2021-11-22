@@ -1,0 +1,139 @@
+//-
+	Rule the words! KKuTu Online
+	Copyright (C) 2017 JJoriping(op@jjo.kr)
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <http://www.gnu.org/licenses/>.
+extends layout
+
+block Subject
+	title *** GalaxyKKuTu 관리 페이지 ***
+
+block JS
+	script(type="text/javascript", src="/js/in_admin.min.js")
+
+block Middle
+	fieldset
+		legend 자격
+		input#db-password(type='password', placeholder='암호')
+		input#db-lang(placeholder='테이블')
+	fieldset
+		legend 추가 요청 받기
+		div
+			button#injeong-go 조회
+			div
+				table
+					thead: tr
+						td 승인?
+						td 링크
+						td #
+						td theme
+						td writer
+						td createdAt
+					tbody#injeong-data
+			button#injeong-everything 모두 승인
+			button#injeong-nothing 모두 거절
+			button#injeong-apply 적용
+	fieldset
+		legend 상점 DB 다루기
+		div
+			input#shop-word(placeholder='품목 (~ALL)')
+			button#shop-go 조회
+			button#shop-hide 숨기기
+			div
+				table
+					thead: tr
+						td #
+						td cost
+						td hit
+						td term
+						td group
+						td updatedAt
+						td options
+						td name_ko_KR
+						td desc_ko_KR
+						td name_en_US
+						td desc_en_US
+					tbody#shop-data
+			button#shop-add 추가
+			button#shop-apply 적용
+	fieldset
+		legend 유저 DB 다루기
+		div
+			input#user-id(placeholder='ID')
+			input#user-nick(placeholder='닉네임')
+			button#user-go 조회
+			div
+				table
+					thead: tr
+						td #
+						td money
+						td kkutu
+						td box
+						td equip
+						td exordial
+						td server
+						td lastLogin
+						td black
+						td friends
+					tbody#user-data
+			button#user-apply 적용
+	fieldset
+		legend 유저 감시하기
+		div
+			input#gamsi-id(placeholder='ID (,로 구분)')
+			button#gamsi-go 감시
+			div
+				table
+					thead: tr
+						td #
+						td 닉네임
+						td 서버
+					tbody#gamsi-data
+	fieldset
+		legend 끄투 DB 다루기
+		div
+			input#db-word(placeholder='단어')
+			button#db-go 조회
+			div#word-data
+				div#wd-id
+				input#wd-flag
+				table
+					thead: tr
+						td #
+						td type
+						td theme
+						td mean
+						td 행동
+					tbody#wd-data
+			div#word-flag
+			div#word-hit
+			button#word-add 추가
+			button#db-apply 적용
+	fieldset
+		legend 끄투 DB에 단어 추가하기
+		div
+			input#db-theme(placeholder='주제코드 (~부터 적으면 검색)')
+			textarea#db-list(rows=20, cols=100,placeholder=`
+<주제 코드>
+
+『한국어 주제』\nIMS : THE iDOLM@STER\nVOC : VOCALOID\nKRR : 개구리 중사 케로로\nKTV : 국내 방송 프로그램\nNSK : 니세코이\nKOT : 대한민국 철도역\nDOT : 도타 2\nDRR : 듀라라라!!\nDGM : 디지몬\nRAG : 라면/과자\nLVL : 러브 라이브!\nLOL : 리그 오브 레전드\nMRN : 마법소녀 리리컬 나노하\nMMM : 마법소녀 마도카☆마기카\nMAP : 메이플스토리\nMKK : 메카쿠시티 액터즈\nMNG : 모노가타리 시리즈\nMOB : 모바일 게임\nHYK : 빙과\nCYP : 사이퍼즈\nHRH : 스즈미야 하루히\nSTA : 스타크래프트\nOIJ : 신조어\nKGR : 아지랑이 프로젝트\nESB : 앙상블 스타즈!\nELW : 엘소드\nOIM : 오레이모\nOVW : 오버워치\nNEX : 온라인 게임\nWMV : 외국 영화\nWOW : 월드 오브 워크래프트\nYRY : 유루유리\nKPO : 유명인\nJLN : 라이트 노벨\nJAN : 만화/애니메이션\nZEL : 젤다의 전설\nPOK : 포켓몬스터\nHAI : 하이큐!!\nHSS : 하스스톤\nKMV : 한국 영화\nHDC : 함대 컬렉션\nHOS : 히어로즈 오브 더 스톰\n10 : 가톨릭\n20 : 건설\n30 : 경제\n40 : 고적\n50 : 고유\n60 : 공업\n70 : 광업\n80 : 교육\n90 : 교통\n100 : 군사\n110 : 기계\n120 : 기독교\n130 : 논리\n140 : 농업\n150 : 문학\n160 : 물리\n170 : 미술\n180 : 민속\n190 : 동물\n200 : 법률\n210 : 불교\n220 : 사회\n230 : 생물\n240 : 수학\n250 : 수산\n260 : 수공\n270 : 식물\n280 : 심리\n290 : 약학\n300 : 언론\n310 : 언어\n320 : 역사\n330 : 연영\n340 : 예술\n350 : 운동\n360 : 음악\n370 : 의학\n380 : 인명\n390 : 전기\n400 : 정치\n410 : 종교\n420 : 지리\n430 : 지명\n440 : 책명\n450 : 천문\n460 : 철학\n470 : 출판\n480 : 통신\n490 : 컴퓨터\n500 : 한의학\n510 : 항공\n520 : 해양\n530 : 화학\n1001 : 나라 수도\n
+『영어 주제』\ne03 : ★\ne05 : 동물\ne08 : 인체\ne12 : 감정\ne13 : 음식\ne15 : 지명\ne18 : 사람\ne20 : 식물\ne43 : 날씨
+			`)
+			button#db-ok 확인
+	fieldset
+		legend 끄투에서의 인기 단어
+		button#kpw-query 조회
+		textarea#kpw-html
+		div#kpw-table
+		button#kpw-flush 반영
